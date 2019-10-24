@@ -4,7 +4,7 @@ import "./App.module.css";
 
 class App extends Component {
   render() {
-    return <div> This is a test - Dave Hughes</div>;
+    return <Layout></Layout>;
   }
 }
 

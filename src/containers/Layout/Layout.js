@@ -2,7 +2,7 @@ import React from "react";
 
 class Layout extends React.Component {
   render() {
-    return <div>This is a test - Dave Hughes</div>;
+    return <div>Smash, Bruh</div>;
   }
 }
 
