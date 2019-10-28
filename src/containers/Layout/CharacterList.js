@@ -2,9 +2,10 @@ import React from "react";
 
 class CharacterList extends React.Component{
     render(){
+        console.log(this.props.characters);
         return (
-            <div>List of characters</div>
-        );
+            <div>Test</div>
+                );
     }
 }
 

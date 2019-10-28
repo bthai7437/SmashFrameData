@@ -1,9 +1,16 @@
 import React from "react";
+import NavBar from "./NavBar";
+import SelectScreen from "./SelectScreen";
 
 class Layout extends React.Component {
   render() {
     return (
-      <div>Smash, Bruh</div>
+      <div>
+        <NavBar/>
+        <div>
+          <SelectScreen/>
+        </div>
+      </div>
       );
   }
 }
