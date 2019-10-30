@@ -5,7 +5,11 @@ import "./App.module.css";
 
 class App extends Component {
   render() {
-    return <FrameTable />;
+    return (
+      <Layout>
+        <FrameTable />
+      </Layout>
+    );
   }
 }
 
