@@ -2,6 +2,7 @@ import React from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+import ImageStyle from './CharacterList.module.css';
 
 const CharacterList = props =>{
     console.log(props.characters);
@@ -9,7 +10,7 @@ const CharacterList = props =>{
         const images = props.characters.map( (image) => {
             return (
                 <Col key={image.InstanceId} xs="auto" md="auto" xl="auto">
-                    <Image rounded onClick={()=>console.log(image.Name)}  alt={image.name} src={image.ThumbnailUrl}/>
+                    <Image className={ImageStyle.Image}rounded onClick={()=>console.log(image.Name)}  alt={image.name} src={image.ThumbnailUrl}/>
                 </Col>
             );
         });

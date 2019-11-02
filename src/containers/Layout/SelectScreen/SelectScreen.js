@@ -1,11 +1,12 @@
 import React from "react";
-import Axios from "../../axios";
-import CharacterList from "./CharacterList";
+import Axios from "../../../axios";
+import CharacterList from "../CharacterList/CharacterList";
+import Container from 'react-bootstrap/Container'
 
 class SelectScreen extends React.Component{
     state = {
         currentCharacter: null,
-        characterData: {},
+        characterData: [],
         loaded: false,
         error: false
       };
@@ -27,7 +28,9 @@ class SelectScreen extends React.Component{
             // console.log(this.state.characterData);
         }
         return (
-            <CharacterList characters={this.state.characterData} />
+            <Container>
+              <CharacterList characters={this.state.characterData} />
+            </Container>
         );
     }
 }
