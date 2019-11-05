@@ -1,3 +1,4 @@
-.Image{
-    padding-top:10px;
+.Image {
+  padding-top: 10px;
+  animation: showImage 0.4s ease-out;
 }
