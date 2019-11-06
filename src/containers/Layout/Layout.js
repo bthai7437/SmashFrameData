@@ -10,13 +10,15 @@ class Layout extends React.Component {
 
   changeSelectedCharacter = (name) =>{
     //change the selected character to the one clicked
-    // this.setState();
+    console.log("New name:"+name);
+    this.setState({selectedCharacter: name});
   }
 
   render() {
+    console.log("State name:"+this.state.selectedCharacter);
     return (
       <div className={ImageStyle.BackgroundImage}>
-        <NavBar selectedCaracter={this.state.selectedCharacter}/>
+        <NavBar selectedCaracter={this.state.selectedCharacter} charSelector={this.changeSelectedCharacter}/>
         <div>
           <SelectScreen charSelector={this.changeSelectedCharacter}/>
         </div>

@@ -19,8 +19,8 @@ class NavBar extends React.Component {
           <Nav.Link href="#home" style={textColor}>
             Home
           </Nav.Link>
-          <Nav.Link href="#features" style={textColor}>
-            Features
+          <Nav.Link onClick={()=>{this.props.charSelector(null)}} style={textColor}>
+            Reset
           </Nav.Link>
           <Nav.Link href="#pricing" style={textColor}>
             {this.props.selectedCaracter}
