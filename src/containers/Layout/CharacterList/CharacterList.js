@@ -9,7 +9,7 @@ class CharacterList extends Component {
     if (this.props.characters[0]) {
       const images = this.props.characters.map(image => {
         return (
-          <Col key={image.InstanceId} xs="auto" md="auto">
+          <Col key={image.InstanceId}>
             <Character name={image.Name} ThumbnailUrl={image.ThumbnailUrl} charSelector={this.props.charSelector} />
           </Col>
         );
