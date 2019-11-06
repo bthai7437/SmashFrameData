@@ -24,7 +24,7 @@ class Character extends Component {
             <Image
               style={animProps}
               rounded
-              onClick={() => console.log(this.props.name)}
+              onClick={this.props.charSelector}
               alt={this.props.name}
               src={this.props.ThumbnailUrl}
               onMouseEnter={this.onHoverHandler}

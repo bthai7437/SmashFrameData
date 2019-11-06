@@ -23,7 +23,7 @@ class NavBar extends React.Component {
             Features
           </Nav.Link>
           <Nav.Link href="#pricing" style={textColor}>
-            Pricing
+            {this.props.selectedCaracter}
           </Nav.Link>
         </Nav>
         <Form inline>
