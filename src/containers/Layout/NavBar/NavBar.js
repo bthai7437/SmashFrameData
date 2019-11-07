@@ -26,12 +26,6 @@ class NavBar extends React.Component {
             Pricing
           </Nav.Link>
         </Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-info" style={textColor}>
-            Search
-          </Button>
-        </Form>
       </Navbar>
     );
   }

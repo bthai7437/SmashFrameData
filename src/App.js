@@ -7,7 +7,7 @@ import "./App.module.css";
 class App extends Component {
   render() {
     return (
-      <div>
+      <div style={{ backgroundColor: "black" }}>
         <Layout>
           <CharacterSelect />
         </Layout>
