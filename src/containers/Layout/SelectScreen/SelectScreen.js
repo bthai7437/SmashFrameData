@@ -3,7 +3,7 @@ import Axios from "../../../axios";
 import CharacterList from "../CharacterList/CharacterList";
 import Container from "react-bootstrap/Container";
 import SearchBar from "../../../components/UI/SearchBar/SearchBar";
-import Backdrop from "../../../components/UI/Backdrop/Backdrop";
+
 class SelectScreen extends React.Component {
   state = {
     currentCharacter: null,
