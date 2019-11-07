@@ -28,8 +28,11 @@ class SelectScreen extends React.Component {
       // console.log(this.state.characterData);
     }
     return (
-      <Container>
-        <CharacterList characters={this.state.characterData} charSelector={this.props.charSelector} />
+      <Container fluid>
+        <CharacterList
+          characters={this.state.characterData}
+          charSelector={this.props.charSelector}
+        />
       </Container>
     );
   }

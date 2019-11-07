@@ -4,13 +4,16 @@ import Col from "react-bootstrap/Col";
 import Character from "./Character/Character";
 
 class CharacterList extends Component {
-
   render() {
     if (this.props.characters[0]) {
       const images = this.props.characters.map(image => {
         return (
-          <Col key={image.InstanceId} xs="auto" md="auto">
-            <Character name={image.Name} ThumbnailUrl={image.ThumbnailUrl} charSelector={this.props.charSelector} />
+          <Col key={image.InstanceId}>
+            <Character
+              name={image.Name}
+              ThumbnailUrl={image.ThumbnailUrl}
+              charSelector={this.props.charSelector}
+            />
           </Col>
         );
       });
