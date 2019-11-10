@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Character from "./Character/Character";
+import { Spring } from "react-spring/renderprops";
 class CharacterList extends Component {
   state = {
     isEmpty: false
@@ -18,24 +19,28 @@ class CharacterList extends Component {
             )
           ) {
             result = (
-              <Col key={image.InstanceId} xs="auto" md="auto">
-                <Character
-                  name={image.Name}
-                  ThumbnailUrl={image.ThumbnailUrl}
-                  isFiltered={true}
-                />
-              </Col>
+              <div key={image.InstanceId}>
+                <Col xs="auto" md="auto">
+                  <Character
+                    name={image.Name}
+                    ThumbnailUrl={image.ThumbnailUrl}
+                    isFiltered={true}
+                  />
+                </Col>
+              </div>
             );
           }
         } else {
           result = (
-            <Col key={image.InstanceId} xs="auto" md="auto">
-              <Character
-                name={image.Name}
-                isFiltered
-                ThumbnailUrl={image.ThumbnailUrl}
-              />
-            </Col>
+            <div key={image.InstanceId}>
+              <Col key={image.InstanceId} xs="auto" md="auto">
+                <Character
+                  name={image.Name}
+                  isFiltered
+                  ThumbnailUrl={image.ThumbnailUrl}
+                />
+              </Col>
+            </div>
           );
         }
         return result;
@@ -62,7 +67,9 @@ class CharacterList extends Component {
 
       return (
         <div>
-          <Row>{images}</Row>
+          <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
+            {animProps => <Row style={animProps}>{images}</Row>}
+          </Spring>
           <Row>{emptyImages}</Row>
         </div>
       );

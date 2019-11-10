@@ -6,6 +6,8 @@ class Character extends Component {
   state = {
     hovered: false
   };
+
+  componentDidMount() {}
   onHoverHandler = () => {
     this.setState(state => {
       return { hovered: !state.hovered };
@@ -14,15 +16,19 @@ class Character extends Component {
 
   render() {
     const emptyImage = {
-      height: "100px",
-      width: "100px",
+      height: "150px",
+      width: "150px",
       backgroundColor: "#343a40"
     };
 
     let displayChar = (
       <Spring
+        from={{
+          opacity: 0
+        }}
         to={{
-          transform: `scale(${this.state.hovered ? 1.1 : 1}`
+          transform: `scale(${this.state.hovered ? 1.1 : 1}`,
+          opacity: 1
         }}
       >
         {animProps => (
