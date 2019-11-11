@@ -13,7 +13,7 @@ class FrameTable extends Component {
   };
 
   componentDidMount() {
-    Axios.get("/characters/name/ZeroSuitSamus/moves")
+    Axios.get(`/characters/name/${this.props.selectedCharacter}/moves`)
       .then(res => {
         this.setState({ characterData: res.data, loaded: true });
       })
@@ -21,7 +21,7 @@ class FrameTable extends Component {
         console.log(err);
         this.setState({ error: true });
       });
-    Axios.get("/characters/name/ZeroSuitSamus").then(res => {
+    Axios.get(`/characters/name/${this.props.selectedCharacter}`).then(res => {
       this.setState({ characterImgSrc: res.data, loaded: true });
     });
   }
@@ -29,7 +29,6 @@ class FrameTable extends Component {
   render() {
     let moveList = [];
     if (this.state.loaded) {
-      console.log(this.state.characterData);
       // dynamically add Move input and Frame data in a custom Table
       moveList = this.state.characterData.map(move => {
         return (

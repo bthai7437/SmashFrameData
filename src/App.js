@@ -1,19 +1,56 @@
 import React, { Component } from "react";
 import Layout from "./containers/Layout/Layout";
 import FrameTable from "./components/FrameTable/FrameTable";
-import CharacterSelect from "./containers/Layout/SelectScreen/SelectScreen";
+import SelectScreen from "./containers/Layout/SelectScreen/SelectScreen";
 import Auth from "./containers/Auth/Auth";
 import Nav from "./components/UI/NavBar/NavBar";
 import AppStyle from "./App.module.css";
-
+import { Route } from "react-router-dom";
+import NavBar from "./components/UI/NavBar/NavBar";
 class App extends Component {
+  state = {
+    selectedCharacter: null
+  };
+
+  changeSelectedCharacter = name => {
+    //change the selected character to the one clicked
+    console.log("New name:" + name);
+    this.setState({ selectedCharacter: name });
+  };
+
   render() {
     return (
       <div className={AppStyle.BackgroundImage}>
-        <Nav />
+        <NavBar
+          selectedCharacter={this.state.selectedCharacter}
+          charSelector={this.changeSelectedCharacter}
+        />
         <div className={AppStyle.BackgroundImage}>
           <Layout>
-            <Auth />
+            <div>
+              <div>
+                <Route
+                  path="/"
+                  exact
+                  render={props => (
+                    <SelectScreen
+                      {...props}
+                      selectedCharacter={this.state.selectedCharacter}
+                      charSelector={this.changeSelectedCharacter}
+                    />
+                  )}
+                />
+                <Route
+                  path="/FrameTable"
+                  render={props => (
+                    <FrameTable
+                      {...props}
+                      selectedCharacter={this.state.selectedCharacter}
+                    />
+                  )}
+                />
+              </div>
+            </div>
           </Layout>
         </div>
       </div>

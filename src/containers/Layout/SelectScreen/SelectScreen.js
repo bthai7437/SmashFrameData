@@ -25,11 +25,14 @@ class SelectScreen extends React.Component {
 
   render() {
     if (this.state.loaded) {
-      // console.log(this.state.characterData);
+      console.log(this.state.characterData);
     }
     return (
-      <Container>
-        <CharacterList characters={this.state.characterData} />
+      <Container fluid>
+        <CharacterList
+          characters={this.state.characterData}
+          charSelector={this.props.charSelector}
+        />
       </Container>
     );
   }
