@@ -28,23 +28,15 @@ class SelectScreen extends React.Component {
   onSearchChangeHandler = event => {
     const filter = event.target.value;
     if (event.target.value !== "") {
-      this.setState(prevState => ({
-        ...prevState.currentCharacter,
-        ...prevState.characterData,
-        ...prevState.loaded,
-        ...prevState.error,
+      this.setState({
         searchString: filter,
         isFiltered: true
-      }));
+      });
     } else {
-      this.setState(prevState => ({
-        ...prevState.currentCharacter,
-        ...prevState.characterData,
-        ...prevState.loaded,
-        ...prevState.error,
+      this.setState({
         searchString: filter,
         isFiltered: false
-      }));
+      });
     }
   };
 
