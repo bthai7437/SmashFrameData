@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import NavStyle from "./NavBar.module.css";
+import { Link } from "react-router-dom";
 const navbar = { backgroundColor: "#317F87" };
 const textColor = { color: "white" };
 
@@ -16,9 +17,11 @@ class NavBar extends React.Component {
   render() {
     return (
       <Navbar sticky="top" style={navbar}>
-        <Navbar.Brand href="#home" style={textColor}>
-          SMASH, BRUH
-        </Navbar.Brand>
+        <Link to={"/"}>
+          <Navbar.Brand href="#home" style={textColor}>
+            SMASH, BRUH
+          </Navbar.Brand>
+        </Link>
         <Nav className="mr-auto">
           <Nav.Link href="#home" style={textColor}>
             Home
