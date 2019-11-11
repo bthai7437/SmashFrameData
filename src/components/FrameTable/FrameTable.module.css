@@ -1,7 +1,7 @@
 .FrameData {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: #343a40;
 }

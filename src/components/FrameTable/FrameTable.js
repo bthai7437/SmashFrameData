@@ -30,9 +30,6 @@ class FrameTable extends Component {
     let moveList = [];
     if (this.state.loaded) {
       console.log(this.state.characterData);
-      //console.log(this.state.characterData[0]);
-      // console.log(this.state.characterData[0].BaseDamage.Normal); // base damage
-      // console.log(this.state.characterData[0].HitboxActive.Frames); // Active Frames
       // dynamically add Move input and Frame data in a custom Table
       moveList = this.state.characterData.map(move => {
         return (
@@ -52,16 +49,18 @@ class FrameTable extends Component {
           src={this.state.characterImgSrc.ThumbnailUrl}
           alt="ZeroSuitSamus"
         />
-        <Table bordered hover variant="dark">
-          <thead>
-            <tr>
-              <th>Input</th>
-              <th>Active Hitbox</th>
-              <th>Base Damage</th>
-            </tr>
-          </thead>
-          <tbody>{moveList}</tbody>
-        </Table>
+        <div>
+          <Table bordered hover variant="dark" responsive>
+            <thead>
+              <tr>
+                <th>Input</th>
+                <th>Active Hitbox</th>
+                <th>Base Damage</th>
+              </tr>
+            </thead>
+            <tbody>{moveList}</tbody>
+          </Table>
+        </div>
       </div>
     );
   }

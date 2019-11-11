@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 import Layout from "./containers/Layout/Layout";
 import FrameTable from "./components/FrameTable/FrameTable";
-import CharacterSelect from "./containers/Layout/CharacterList/CharacterList";
-import "./App.module.css";
+import CharacterSelect from "./containers/Layout/SelectScreen/SelectScreen";
+import Auth from "./containers/Auth/Auth";
+import Nav from "./components/UI/NavBar/NavBar";
+import AppStyle from "./App.module.css";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Layout>
-          <CharacterSelect />
-        </Layout>
+      <div className={AppStyle.BackgroundImage}>
+        <Nav />
+        <div className={AppStyle.BackgroundImage}>
+          <Layout>
+            <Auth />
+          </Layout>
+        </div>
       </div>
     );
   }
