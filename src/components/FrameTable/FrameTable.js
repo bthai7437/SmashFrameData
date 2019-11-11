@@ -29,7 +29,7 @@ class FrameTable extends Component {
   render() {
     let moveList = [];
     if (this.state.loaded) {
-      console.log(this.state.characterData);
+      // console.log(this.state.characterData);
       //console.log(this.state.characterData[0]);
       // console.log(this.state.characterData[0].BaseDamage.Normal); // base damage
       // console.log(this.state.characterData[0].HitboxActive.Frames); // Active Frames

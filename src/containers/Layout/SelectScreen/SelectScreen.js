@@ -25,7 +25,7 @@ class SelectScreen extends React.Component {
 
   render() {
     if (this.state.loaded) {
-      // console.log(this.state.characterData);
+      console.log(this.state.characterData);
     }
     return (
       <Container fluid>
