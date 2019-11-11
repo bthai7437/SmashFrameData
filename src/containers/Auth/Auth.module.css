@@ -1,0 +1,14 @@
+.Form {
+  width: 50%;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 50px auto;
+}
+
+.Account {
+  text-align: center;
+  box-sizing: border-box;
+  margin: auto;
+  color: white;
+  font-size: 20px;
+}
