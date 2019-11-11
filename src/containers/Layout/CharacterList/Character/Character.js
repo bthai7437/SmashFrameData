@@ -16,27 +16,27 @@ class Character extends Component {
   render() {
     return (
       <div style={{ paddingTop: "50px" }}>
-        {/* <Link to="/FrameTable"> */}
-        <Spring
-          to={{
-            transform: `scale(${this.state.hovered ? 1.1 : 1}`
-          }}
-        >
-          {animProps => (
-            <Image
-              style={animProps}
-              rounded
-              onClick={() => {
-                this.props.charSelector(this.props.name);
-              }}
-              alt={this.props.name}
-              src={this.props.ThumbnailUrl}
-              onMouseEnter={this.onHoverHandler}
-              onMouseLeave={this.onHoverHandler}
-            />
-          )}
-        </Spring>
-        {/* </Link> */}
+        <Link to="/FrameTable">
+          <Spring
+            to={{
+              transform: `scale(${this.state.hovered ? 1.1 : 1}`
+            }}
+          >
+            {animProps => (
+              <Image
+                style={animProps}
+                rounded
+                onClick={() => {
+                  this.props.charSelector(this.props.name);
+                }}
+                alt={this.props.name}
+                src={this.props.ThumbnailUrl}
+                onMouseEnter={this.onHoverHandler}
+                onMouseLeave={this.onHoverHandler}
+              />
+            )}
+          </Spring>
+        </Link>
       </div>
     );
   }

@@ -36,7 +36,15 @@ class Layout extends React.Component {
                 />
               )}
             />
-            <Route path="/FrameTable" component={FrameTable} />
+            <Route
+              path="/FrameTable"
+              render={props => (
+                <FrameTable
+                  {...props}
+                  selectedCharacter={this.state.selectedCharacter}
+                />
+              )}
+            />
           </div>
         </BrowserRouter>
       </div>
