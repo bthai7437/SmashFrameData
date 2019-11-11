@@ -11,27 +11,29 @@ const textColor = { color: "white" };
 
 class NavBar extends React.Component {
   navChar = () => {
-    return !this.props.selectedCaracter ? null : this.props.charSelector(null);
+    return !this.props.selectedCharacter ? null : this.props.charSelector(null);
   };
 
   render() {
     return (
       <Navbar sticky="top" style={navbar}>
-        <Link to={"/"}>
-          <Navbar.Brand href="#home" style={textColor}>
+        <Navbar.Brand href="#home" style={textColor}>
+          <Link to={"/"} style={textColor}>
             SMASH, BRUH
-          </Navbar.Brand>
-        </Link>
+          </Link>
+        </Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="#home" style={textColor}>
-            Home
+            <Link to={"/"} style={textColor}>
+              Home
+            </Link>
           </Nav.Link>
           <Nav.Link onClick={this.navChar} style={textColor}>
             Reset
           </Nav.Link>
         </Nav>
         <Navbar.Text style={textColor}>
-          {this.props.selectedCaracter}
+          {this.props.selectedCharacter}
         </Navbar.Text>
       </Navbar>
     );

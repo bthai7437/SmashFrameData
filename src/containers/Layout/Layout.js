@@ -22,10 +22,20 @@ class Layout extends React.Component {
         <BrowserRouter>
           <div>
             <NavBar
-              selectedCaracter={this.state.selectedCharacter}
+              selectedCharacter={this.state.selectedCharacter}
               charSelector={this.changeSelectedCharacter}
             />
-            <Route path="/" exact component={SelectScreen} />
+            <Route
+              path="/"
+              exact
+              render={props => (
+                <SelectScreen
+                  {...props}
+                  selectedCharacter={this.state.selectedCharacter}
+                  charSelector={this.changeSelectedCharacter}
+                />
+              )}
+            />
             <Route path="/FrameTable" component={FrameTable} />
           </div>
         </BrowserRouter>
