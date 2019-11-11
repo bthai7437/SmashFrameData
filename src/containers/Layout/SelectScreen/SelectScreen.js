@@ -2,14 +2,16 @@ import React from "react";
 import Axios from "../../../axios";
 import CharacterList from "../CharacterList/CharacterList";
 import Container from "react-bootstrap/Container";
-import ImageStyle from "./SelectScreen.module.css";
+import SearchBar from "../../../components/UI/SearchBar/SearchBar";
 
 class SelectScreen extends React.Component {
   state = {
     currentCharacter: null,
     characterData: [],
     loaded: false,
-    error: false
+    error: false,
+    isFiltered: false,
+    searchString: ""
   };
 
   componentDidMount() {
@@ -23,16 +25,38 @@ class SelectScreen extends React.Component {
       });
   }
 
+  onSearchChangeHandler = event => {
+    const filter = event.target.value;
+    if (event.target.value !== "") {
+      this.setState({
+        searchString: filter,
+        isFiltered: true
+      });
+    } else {
+      this.setState({
+        searchString: filter,
+        isFiltered: false
+      });
+    }
+  };
+
   render() {
+    let loadedCharacters = null;
     if (this.state.loaded) {
-      console.log(this.state.characterData);
+      loadedCharacters = (
+        <CharacterList
+          isFiltered={this.state.isFiltered}
+          characters={this.state.characterData}
+          charSelector={this.props.charSelector}
+          searchString={this.state.searchString}
+        ></CharacterList>
+      );
     }
     return (
       <Container fluid>
-        <CharacterList
-          characters={this.state.characterData}
-          charSelector={this.props.charSelector}
-        />
+        <SearchBar onSearch={this.onSearchChangeHandler}>
+          {loadedCharacters}
+        </SearchBar>
       </Container>
     );
   }

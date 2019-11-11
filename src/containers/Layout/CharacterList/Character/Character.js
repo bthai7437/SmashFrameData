@@ -7,6 +7,8 @@ class Character extends Component {
   state = {
     hovered: false
   };
+
+  componentDidMount() {}
   onHoverHandler = () => {
     this.setState(state => {
       return { hovered: !state.hovered };
@@ -18,8 +20,12 @@ class Character extends Component {
       <div style={{ paddingTop: "50px" }}>
         <Link to="/FrameTable">
           <Spring
+            from={{
+              opacity: 0
+            }}
             to={{
-              transform: `scale(${this.state.hovered ? 1.1 : 1}`
+              transform: `scale(${this.state.hovered ? 1.1 : 1}`,
+              opacity: 1
             }}
           >
             {animProps => (
