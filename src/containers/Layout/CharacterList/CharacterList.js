@@ -72,7 +72,7 @@ class CharacterList extends Component {
       });
 
       return (
-        <div>
+        <div style={{ backgroundColor: "#343a40" }}>
           <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
             {animProps => <Row style={animProps}>{images}</Row>}
           </Spring>
