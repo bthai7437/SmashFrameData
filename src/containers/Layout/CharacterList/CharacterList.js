@@ -3,6 +3,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Character from "./Character/Character";
 import { Spring } from "react-spring/renderprops";
+import { Link } from "react-router-dom";
+
 class CharacterList extends Component {
   state = {
     isEmpty: false
@@ -21,11 +23,13 @@ class CharacterList extends Component {
             result = (
               <div key={image.InstanceId}>
                 <Col xs="auto" md="auto">
-                  <Character
-                    name={image.Name}
-                    ThumbnailUrl={image.ThumbnailUrl}
-                    isFiltered={true}
-                  />
+                  <Link to={"/Frametable/" + image.Name}>
+                    <Character
+                      name={image.Name}
+                      ThumbnailUrl={image.ThumbnailUrl}
+                      isFiltered={true}
+                    />
+                  </Link>
                 </Col>
               </div>
             );
@@ -34,11 +38,13 @@ class CharacterList extends Component {
           result = (
             <div key={image.InstanceId}>
               <Col key={image.InstanceId} xs="auto" md="auto">
-                <Character
-                  name={image.Name}
-                  isFiltered
-                  ThumbnailUrl={image.ThumbnailUrl}
-                />
+                <Link to={"/Frametable/" + image.Name}>
+                  <Character
+                    name={image.Name}
+                    isFiltered
+                    ThumbnailUrl={image.ThumbnailUrl}
+                  />
+                </Link>
               </Col>
             </div>
           );

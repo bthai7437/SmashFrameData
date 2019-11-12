@@ -12,12 +12,6 @@ class App extends Component {
     selectedCharacter: null
   };
 
-  changeSelectedCharacter = name => {
-    //change the selected character to the one clicked
-    console.log("New name:" + name);
-    this.setState({ selectedCharacter: name });
-  };
-
   render() {
     return (
       <div className={AppStyle.BackgroundImage}>
@@ -29,26 +23,8 @@ class App extends Component {
           <Layout>
             <div>
               <div>
-                <Route
-                  path="/"
-                  exact
-                  render={props => (
-                    <SelectScreen
-                      {...props}
-                      selectedCharacter={this.state.selectedCharacter}
-                      charSelector={this.changeSelectedCharacter}
-                    />
-                  )}
-                />
-                <Route
-                  path="/FrameTable"
-                  render={props => (
-                    <FrameTable
-                      {...props}
-                      selectedCharacter={this.state.selectedCharacter}
-                    />
-                  )}
-                />
+                <Route path="/" exact component={SelectScreen} />
+                <Route path="/FrameTable/:name" component={FrameTable} />
               </div>
             </div>
           </Layout>

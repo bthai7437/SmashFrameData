@@ -4,6 +4,7 @@ import FrameData from "../FrameTable/FrameData/FrameData";
 import MoveInput from "../FrameTable/MoveInput/MoveInput";
 import FrameStyle from "./FrameTable.module.css";
 import { Table } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 class FrameTable extends Component {
   state = {
     characterImgSrc: "",
@@ -13,7 +14,8 @@ class FrameTable extends Component {
   };
 
   componentDidMount() {
-    Axios.get(`/characters/name/${this.props.selectedCharacter}/moves`)
+    console.log(this.props);
+    Axios.get(`/characters/name/${this.props.match.params.name}/moves`)
       .then(res => {
         this.setState({ characterData: res.data, loaded: true });
       })
@@ -21,7 +23,7 @@ class FrameTable extends Component {
         console.log(err);
         this.setState({ error: true });
       });
-    Axios.get(`/characters/name/${this.props.selectedCharacter}`).then(res => {
+    Axios.get(`/characters/name/${this.props.match.params.name}`).then(res => {
       this.setState({ characterImgSrc: res.data, loaded: true });
     });
   }
@@ -65,4 +67,4 @@ class FrameTable extends Component {
   }
 }
 
-export default FrameTable;
+export default withRouter(FrameTable);
