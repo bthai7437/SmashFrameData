@@ -17,6 +17,7 @@ class SelectScreen extends React.Component {
   componentDidMount() {
     Axios.get("/characters")
       .then(res => {
+        console.log(res.data);
         this.setState({ characterData: res.data, loaded: true });
       })
       .catch(err => {
